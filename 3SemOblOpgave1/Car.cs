@@ -22,6 +22,8 @@ namespace _3SemOblOpgave1
             LicensePlate = licensePlate;
         }
 
+        public Car(){ }
+
         public void Validate()
         {
             if (Model == null || Price == null || LicensePlate == null) throw new ArgumentNullException("Property returned null");

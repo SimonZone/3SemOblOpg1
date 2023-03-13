@@ -15,6 +15,9 @@ namespace _3SemOblOpgave1.Tests
         Car carWithInvalidModel = new Car(1, "A", 100000, "AB12345");
         Car carWithInvalidPrice = new Car(1, "Audi", -1, "AB12345");
         Car carWithInvalidLicensePlate = new Car(1, "Audi", 100000, "A");
+        Car carWithNullModel = new Car(1, null, 100000, "AB12345");
+        Car carWithNullPrice = new Car(1, "Audi", null, "AB12345");
+        Car carWithNullLicensePlate = new Car(1, "Audi", 100000, null);
 
         [TestInitialize]
         public void Initialize()
@@ -28,6 +31,9 @@ namespace _3SemOblOpgave1.Tests
             Assert.ThrowsException<ArgumentException>(() => carWithInvalidModel.Validate());
             Assert.ThrowsException<ArgumentException>(() => carWithInvalidPrice.Validate());
             Assert.ThrowsException<ArgumentException>(() => carWithInvalidLicensePlate.Validate());
+            Assert.ThrowsException<ArgumentNullException>(() => carWithNullModel.Validate());
+            Assert.ThrowsException<ArgumentNullException>(() => carWithNullPrice.Validate());
+            Assert.ThrowsException<ArgumentNullException>(() => carWithNullLicensePlate.Validate());
         }
 
         [TestMethod()]
